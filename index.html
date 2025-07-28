@@ -57,17 +57,6 @@
             border-radius: 2px;
         }
 
-        /* Fade-in Animation */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Typing Animation Cursor */
         .typing-cursor::after {
             content: '|';
@@ -78,13 +67,21 @@
             50% { color: #89b4fa; }
         }
         
+        /* --- Colorful Tags for Projects --- */
+        .tag {
+            @apply px-3 py-1 text-sm font-semibold rounded-full;
+        }
+        .tag-purple { @apply bg-purple-900/50 text-purple-300; }
+        .tag-blue { @apply bg-blue-900/50 text-blue-300; }
+        .tag-green { @apply bg-green-900/50 text-green-300; }
+        .tag-orange { @apply bg-orange-900/50 text-orange-300; }
+        
         /* --- Vertical Timeline Styles --- */
         .timeline-container {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
-        /* The vertical line */
         .timeline-container::after {
             content: '';
             position: absolute;
@@ -95,14 +92,12 @@
             left: 50%;
             margin-left: -3px;
         }
-        /* Container around content */
         .timeline-item {
             padding: 10px 40px;
             position: relative;
             background-color: inherit;
             width: 50%;
         }
-        /* The circles on the timeline */
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -115,14 +110,12 @@
             border-radius: 50%;
             z-index: 1;
         }
-        /* Left and Right alignment */
         .timeline-left {
             left: 0;
         }
         .timeline-right {
             left: 50%;
         }
-        /* Add arrows to the left container (pointing right) */
         .timeline-left::before {
             content: " ";
             height: 0;
@@ -135,7 +128,6 @@
             border-width: 10px 0 10px 10px;
             border-color: transparent transparent transparent #2a3a5a;
         }
-        /* Add arrows to the right container (pointing left) */
         .timeline-right::before {
             content: " ";
             height: 0;
@@ -148,18 +140,15 @@
             border-width: 10px 10px 10px 0;
             border-color: transparent #2a3a5a transparent transparent;
         }
-        /* Fix the circle for right containers */
         .timeline-right::after {
             left: -16px;
         }
-        /* The actual content */
         .timeline-content {
             padding: 20px 30px;
             background-color: #1e293b;
             position: relative;
             border-radius: 6px;
         }
-        /* Responsive timeline */
         @media screen and (max-width: 768px) {
             .timeline-container::after {
                 left: 31px;
@@ -240,13 +229,13 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="section">
-            <div class="container mx-auto">
-                <h2 class="section-title relative">About Me</h2>
-                <div class="flex flex-col md:flex-row items-center gap-12 mt-12">
+        <section id="about" class="min-h-screen flex flex-col justify-center">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title relative text-center">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12 mt-20">
                     <div class="md:w-1/3 text-center">
-                        <img src="https://placehold.co/400x400/131720/E0E0E0?text=Amit+S." alt="Amit Singh" class="rounded-full shadow-lg mx-auto w-64 h-64 md:w-80 md:h-80 object-cover transform hover:scale-105 transition-transform duration-500 border-4 border-gray-800">
-                        <a href="Amit_s_Resume.pdf" download="Amit_Singh_Resume.pdf" class="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <img src="data/image.jpg" alt="Amit Singh" class="rounded-full shadow-lg mx-auto w-64 h-64 md:w-80 md:h-80 object-cover transform hover:scale-105 transition-transform duration-500 border-4 border-gray-800">
+                        <a href="Amit_s_Resume.pdf" download="data/Amit_Singh_Resume.pdf" class="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             Download Resume
                         </a>
                     </div>
@@ -260,10 +249,10 @@
         </section>
         
         <!-- Experience Timeline Section -->
-        <section id="experience" class="section">
-             <div class="container mx-auto">
-                <h2 class="section-title relative">Work Experience</h2>
-                <div class="timeline-container mt-12">
+        <section id="experience" class="min-h-screen flex flex-col justify-center">
+             <div class="container mx-auto px-6">
+                <h2 class="section-title relative text-center">Work Experience</h2>
+                <div class="timeline-container mt-20">
                     <div class="timeline-item timeline-left">
                         <div class="timeline-content">
                             <h3 class="text-xl font-bold text-white">Data Analyst</h3>
@@ -304,10 +293,10 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container mx-auto">
-                <h2 class="section-title relative">My Projects</h2>
-                <div class="mt-12">
+        <section id="projects" class="min-h-screen flex flex-col justify-center">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title relative text-center">My Projects</h2>
+                <div class="mt-20">
                     <h3 class="text-3xl font-bold text-center text-white mb-10">Work Projects</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="bg-gray-800/60 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-all">
@@ -315,7 +304,10 @@
                             <div class="p-6">
                                 <h4 class="text-2xl font-bold text-white mb-2">GenAI: Custom Text-to-SQL</h4>
                                 <p class="text-gray-400 mb-4">Developed a custom text-to-SQL model for HDFC Ergo on Vertex AI.</p>
-                                <div class="flex flex-wrap gap-2"><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">Transformers</span><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">BigQuery</span></div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag tag-purple">Transformers</span>
+                                    <span class="tag tag-blue">BigQuery</span>
+                                </div>
                             </div>
                         </div>
                         <div class="bg-gray-800/60 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-all">
@@ -323,7 +315,10 @@
                             <div class="p-6">
                                 <h4 class="text-2xl font-bold text-white mb-2">RFM Customer Segmentation</h4>
                                 <p class="text-gray-400 mb-4">Created an RFM model to segment customers for targeted marketing.</p>
-                                <div class="flex flex-wrap gap-2"><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">Python</span><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">Pandas</span></div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag tag-green">Python</span>
+                                    <span class="tag tag-orange">Pandas</span>
+                                </div>
                             </div>
                         </div>
                          <div class="bg-gray-800/60 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-all">
@@ -331,7 +326,10 @@
                             <div class="p-6">
                                 <h4 class="text-2xl font-bold text-white mb-2">Unsupervised Anomaly Detection</h4>
                                 <p class="text-gray-400 mb-4">Built an ML model to identify unusual activity from system health data.</p>
-                                <div class="flex flex-wrap gap-2"><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">Scikit-learn</span><span class="bg-blue-900/50 text-blue-300 px-3 py-1 text-sm font-semibold rounded-full">ELK Stack</span></div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag tag-blue">Scikit-learn</span>
+                                    <span class="tag tag-purple">ELK Stack</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -340,19 +338,19 @@
         </section>
 
         <!-- Achievements Section -->
-        <section id="achievements" class="section">
-            <div class="container mx-auto text-center">
-                <h2 class="section-title relative">Achievements</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+        <section id="achievements" class="min-h-screen flex flex-col justify-center">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title relative text-center">Achievements</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform text-center">
                         <h4 class="text-white text-2xl font-bold mb-2">Lumiq Spot Winner</h4>
                         <p class="text-gray-400">Recognized for excellence in performance at Lumiq.</p>
                     </div>
-                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform text-center">
                         <h4 class="text-white text-2xl font-bold mb-2">E-Yantra Finalist</h4>
                         <p class="text-gray-400">Finalist in the E-Yantra 2021 robotics competition, hosted by IIT Mumbai.</p>
                     </div>
-                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
+                    <div class="bg-gray-800/60 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform text-center">
                         <h4 class="text-white text-2xl font-bold mb-2">Digit College Ambassador</h4>
                         <p class="text-gray-400">Pivotal role in building a tech community for coding competitions and events.</p>
                     </div>
@@ -361,10 +359,10 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container mx-auto max-w-3xl text-center">
+        <section id="contact" class="min-h-screen flex flex-col justify-center">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
                 <h2 class="section-title relative">Get In Touch</h2>
-                <p class="text-lg text-gray-400 mt-8 mb-10">I'm currently open to new opportunities and collaborations. My inbox is always open, whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <p class="text-lg text-gray-400 mt-20 mb-10">I'm currently open to new opportunities and collaborations. My inbox is always open, whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
                 <a href="mailto:amitsngh1799@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Say Hello
                 </a>
@@ -412,9 +410,6 @@
                     cursorDot.style.top = `${e.clientY}px`;
                 });
             }
-
-            // Intersection Observer for scroll animations (if any were added)
-            // You can add the 'fade-in-up' class to sections for this effect.
         });
     </script>
 </body>
